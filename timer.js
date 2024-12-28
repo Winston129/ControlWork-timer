@@ -1,6 +1,8 @@
 import ps_list from 'ps-list';
 import { exec } from 'child_process';
 
+var time_end = 70;
+
 var list_app = [
     "REDprelauncher.exe",
     "AssassinsCreed_Dx9.exe",
@@ -28,7 +30,7 @@ async function close(time_close){
     let list_app_processes = list_all_processes.filter(proc => list_app.includes(proc.name));
     
     if(list_app_processes.length === 0){
-        setTimeout(()=>{close(30)}, 30000);
+        setTimeout(()=>{close(time_end)}, 30000);
     }
     else{
         let str_app = list_app_processes.map(app => 
@@ -57,7 +59,7 @@ async function close(time_close){
     }
 }
 
-close(30);
+close(time_end);
 
 
 /*
